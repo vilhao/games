@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>HUD</name>
+    <events>
+        <event-group description="" sid="2523633145107326" title="HUD">
+            <sub-events>
+                <comment>A function to repeat a string. Very handy when you need several spaces in a row, but you don&apos;t want to type them all out (because that is very ugly).</comment>
+                <event-block sid="827345564407198">
+                    <conditions>
+                        <condition id="0" name="On function" sid="430969233485323" type="Function">
+                            <param id="0" name="Name">&quot;string_repeat&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="Text" sid="6055627261174634" static="0" type="text"></variable>
+                        <event-block sid="9912848612663096">
+                            <conditions>
+                                <condition id="-23" name="While" sid="8440266442537709" type="System" />
+                                <condition id="-8" name="Compare two values" sid="6567774694987946" type="System">
+                                    <param id="0" name="First value">len(Text)</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="3927118874559627" type="System">
+                                    <param id="0" name="Variable">Text</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9268007996459155">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="3608617447387461" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="3176561139586738" type="Function">
+                                    <param id="0" name="Value">Text</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="663917215814206">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="7994826000180874" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="2853744902535974" type="System">
+                            <param id="0" name="Object to create">MarioText</param>
+                            <param id="1" name="Layer">&quot;HUD&quot;</param>
+                            <param id="2" name="X">0</param>
+                            <param id="3" name="Y">8</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="8329492677511458" type="MarioText">
+                            <param id="0" name="Instance variable">Name</param>
+                            <param id="1" name="Value">&quot;HUD&quot;</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="5301817482087986" type="System">
+                            <param id="0" name="Object to create">HUDCoin</param>
+                            <param id="1" name="Layer">&quot;HUD&quot;</param>
+                            <param id="2" name="X">88</param>
+                            <param id="3" name="Y">16</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <variable constant="0" name="TextScore" sid="742435848332088" static="0" type="text"></variable>
+                <variable constant="0" name="TextCoins" sid="3077452942972782" static="0" type="text"></variable>
+                <variable constant="0" name="TextTimer" sid="3056512439524647" static="0" type="text"></variable>
+                <comment>Convert various numbers that will be displayed to strings. This is done to avoid performing this operation multiple times per frame.</comment>
+                <event-block sid="2626494848148862">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="1601079192375955" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2658978894810356" type="System">
+                            <param id="0" name="Variable">TextScore</param>
+                            <param id="1" name="Value">str(Score)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7100471858960063" type="System">
+                            <param id="0" name="Variable">TextScore</param>
+                            <param id="1" name="Value">Function.Call(&quot;string_repeat&quot;, &quot;0&quot;, 6 - len(TextScore)) &amp; TextScore</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9636894437036859" type="System">
+                            <param id="0" name="Variable">TextCoins</param>
+                            <param id="1" name="Value">str(Coins)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2342708858267787" type="System">
+                            <param id="0" name="Variable">TextCoins</param>
+                            <param id="1" name="Value">Function.Call(&quot;string_repeat&quot;, &quot;0&quot;, 2 - len(TextCoins)) &amp; TextCoins</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2415946812888612" type="System">
+                            <param id="0" name="Variable">TextTimer</param>
+                            <param id="1" name="Value">str(Timer)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2157436152519885" type="System">
+                            <param id="0" name="Variable">TextTimer</param>
+                            <param id="1" name="Value">Function.Call(&quot;string_repeat&quot;, &quot;0&quot;, 3 - len(TextTimer)) &amp; TextTimer</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Set the HUD text.</comment>
+                <event-block sid="6800218578137334">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="3718566273273234" type="MarioText">
+                            <param id="0" name="Instance variable">Name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;HUD&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="4130410507145803" type="MarioText">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                        <action id="1" name="Append text" sid="2698155299239049" type="MarioText">
+                            <param id="0" name="Text">Function.Call(&quot;string_repeat&quot;, &quot; &quot;, 3)</param>
+                        </action>
+                        <action id="1" name="Append text" sid="4947494528486754" type="MarioText">
+                            <param id="0" name="Text">&quot;MARIO&quot;</param>
+                        </action>
+                        <action id="1" name="Append text" sid="5224900450704943" type="MarioText">
+                            <param id="0" name="Text">Function.Call(&quot;string_repeat&quot;, &quot; &quot;, 10)</param>
+                        </action>
+                        <action id="1" name="Append text" sid="8264255049659851" type="MarioText">
+                            <param id="0" name="Text">&quot;WORLD&quot;</param>
+                        </action>
+                        <action id="1" name="Append text" sid="8178769601501048" type="MarioText">
+                            <param id="0" name="Text">Function.Call(&quot;string_repeat&quot;, &quot; &quot;, 2)</param>
+                        </action>
+                        <action id="1" name="Append text" sid="8698623948430929" type="MarioText">
+                            <param id="0" name="Text">&quot;TIME&quot;</param>
+                        </action>
+                        <action id="1" name="Append text" sid="2524985941389831" type="MarioText">
+                            <param id="0" name="Text">newline</param>
+                        </action>
+                        <action id="1" name="Append text" sid="7906248215184812" type="MarioText">
+                            <param id="0" name="Text">Function.Call(&quot;string_repeat&quot;, &quot; &quot;, 9 - len(TextScore))</param>
+                        </action>
+                        <action id="1" name="Append text" sid="4942933585811678" type="MarioText">
+                            <param id="0" name="Text">TextScore</param>
+                        </action>
+                        <action id="1" name="Append text" sid="6730288657591067" type="MarioText">
+                            <param id="0" name="Text">Function.Call(&quot;string_repeat&quot;, &quot; &quot;, 3)</param>
+                        </action>
+                        <action id="1" name="Append text" sid="401305302308425" type="MarioText">
+                            <param id="0" name="Text">&quot;x&quot;</param>
+                        </action>
+                        <action id="1" name="Append text" sid="8535004496588703" type="MarioText">
+                            <param id="0" name="Text">TextCoins</param>
+                        </action>
+                        <action id="1" name="Append text" sid="1086997842177913" type="MarioText">
+                            <param id="0" name="Text">Function.Call(&quot;string_repeat&quot;, &quot; &quot;, 4)</param>
+                        </action>
+                        <action id="1" name="Append text" sid="2134082192684111" type="MarioText">
+                            <param id="0" name="Text">str(World) &amp; &quot;-&quot; &amp; str(Level)</param>
+                        </action>
+                        <action id="1" name="Append text" sid="3658686474965837" type="MarioText">
+                            <param id="0" name="Text">Function.Call(&quot;string_repeat&quot;, &quot; &quot;, 4)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="186224369614025">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="2244039227291116" type="System">
+                                    <param id="0" name="Variable">Timer</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Append text" sid="7530666133956422" type="MarioText">
+                                    <param id="0" name="Text">TextTimer</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

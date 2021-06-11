@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Intermission</name>
+    <events>
+        <include>Data</include>
+        <include>Sound</include>
+        <include>HUD</include>
+        <event-group description="" sid="9179111425893913" title="Intermission">
+            <sub-events>
+                <variable constant="0" name="Picked" sid="7526118392244413" static="0" type="number">0</variable>
+                <comment>Determine what to show to the player. It may be a TIME UP, GAME OVER, or level progression message.</comment>
+                <event-block sid="3546104781205604">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="9803784153169097" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Stop" sid="8694105197190908" type="HUDCoin" />
+                        <action id="-13" name="Set time scale" sid="4407727394572844" type="System">
+                            <param id="0" name="Time scale">1.0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="8163491967870957" type="System">
+                            <param id="0" name="Variable">EntryType</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <comment>Enable hardmode for 5-3 and after (currently does nothing).</comment>
+                        <event-block sid="7929139363073878">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6918835488638382" type="System">
+                                    <param id="0" name="Variable">Hardmode</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="9582938456378727">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="2760182005570589" type="System">
+                                            <param id="0" name="Variable">World</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="6037843468088421" type="System">
+                                            <param id="0" name="Variable">Hardmode</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9397171884584867">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="3558105872620295" type="System">
+                                            <param id="0" name="Variable">World</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">5</param>
+                                        </condition>
+                                        <condition id="-14" name="Compare variable" sid="2799088092179654" type="System">
+                                            <param id="0" name="Variable">Level</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="6699737809851247" type="System">
+                                            <param id="0" name="Variable">Hardmode</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="3062913532365678">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="3543800214092477" type="System">
+                                    <param id="0" name="Variable">Timer</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="3866345084962814" type="System">
+                                    <param id="0" name="Variable">Picked</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="8631222816769938" type="Function">
+                                    <param id="0" name="Name">&quot;TimeUp&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3756678218460499">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="9519061654464929" type="System">
+                                    <param id="0" name="Variable">Lives</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="6723401122450735" type="Function">
+                                    <param id="0" name="Name">&quot;PlayMusic&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;smb_gameover&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="890866974891547">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="5572701322773449" type="System">
+                                            <param id="0" name="Variable">Picked</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="5136257790691723" type="System">
+                                            <param id="0" name="Variable">Picked</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="4002901761954146" type="Function">
+                                            <param id="0" name="Name">&quot;GameOver&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="4358940537631814">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="777054250065672" type="System">
+                                    <param id="0" name="Variable">Picked</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="3465641367659517" type="Function">
+                                    <param id="0" name="Name">&quot;LevelIntro&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3543619787074526">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="8488376515918062" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="1543638104951717" type="System">
+                                    <param id="0" name="Variable">Timer</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Show level progress, then start the level.</comment>
+                <event-block sid="6350463305678634">
+                    <conditions>
+                        <condition id="0" name="On function" sid="6928420306682385" type="Function">
+                            <param id="0" name="Name">&quot;LevelIntro&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="5308633427097382" type="System">
+                            <param id="0" name="Object to create">MarioText</param>
+                            <param id="1" name="Layer">&quot;BG&quot;</param>
+                            <param id="2" name="X">88</param>
+                            <param id="3" name="Y">72</param>
+                        </action>
+                        <action id="0" name="Set text" sid="33884137387309" type="MarioText">
+                            <param id="0" name="Text">&quot;WORLD &quot; &amp; World &amp; &quot;-&quot; &amp; Level</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="9013899189363833" type="System">
+                            <param id="0" name="Object to create">SmallMario</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">104</param>
+                            <param id="3" name="Y">106</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="5000303685849" type="System">
+                            <param id="0" name="Object to create">MarioText</param>
+                            <param id="1" name="Layer">&quot;BG&quot;</param>
+                            <param id="2" name="X">120</param>
+                            <param id="3" name="Y">104</param>
+                        </action>
+                        <action id="0" name="Set text" sid="3093086812697367" type="MarioText">
+                            <param id="0" name="Text">&quot;x&quot; &amp; Function.Call(&quot;string_repeat&quot;, &quot; &quot;, 3 - len(str(Lives))) &amp; str(Lives)</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="7749246607357702" type="System">
+                            <param id="0" name="Seconds">2.0</param>
+                        </action>
+                        <action id="-25" name="Go to layout (by name)" sid="3679156034299459" type="System">
+                            <param id="0" name="Layout">LevelMap.At(CurrentLevel)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Show TIME UP message, then either show GAME OVER or level progression.</comment>
+                <event-block sid="757334026971976">
+                    <conditions>
+                        <condition id="0" name="On function" sid="3677924925517533" type="Function">
+                            <param id="0" name="Name">&quot;TimeUp&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="2111908032742615" type="System">
+                            <param id="0" name="Object to create">MarioText</param>
+                            <param id="1" name="Layer">&quot;BG&quot;</param>
+                            <param id="2" name="X">96</param>
+                            <param id="3" name="Y">120</param>
+                        </action>
+                        <action id="0" name="Set text" sid="8812225845389492" type="MarioText">
+                            <param id="0" name="Text">&quot;TIME UP&quot;</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="2402351609216915" type="MarioText">
+                            <param id="0" name="Instance variable">Name</param>
+                            <param id="1" name="Value">&quot;TimeUp&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="2453640091263164" type="System">
+                            <param id="0" name="Seconds">2.0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="2615333316956356" type="MarioText" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="996373376338752">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="1382765578167547" type="System">
+                                    <param id="0" name="Variable">Lives</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="1519137879507512" type="Function">
+                                    <param id="0" name="Name">&quot;LevelIntro&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="49201970105666">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="4733641101739643" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="8051633291184497" type="Function">
+                                    <param id="0" name="Name">&quot;GameOver&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Show GAME OVER, then start over from the beginning.</comment>
+                <event-block sid="243347611955614">
+                    <conditions>
+                        <condition id="0" name="On function" sid="8157467105133444" type="Function">
+                            <param id="0" name="Name">&quot;GameOver&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="966973799585806" type="System">
+                            <param id="0" name="Object to create">MarioText</param>
+                            <param id="1" name="Layer">&quot;BG&quot;</param>
+                            <param id="2" name="X">88</param>
+                            <param id="3" name="Y">120</param>
+                        </action>
+                        <action id="0" name="Set text" sid="3834204373084984" type="MarioText">
+                            <param id="0" name="Text">&quot;GAME OVER&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="7061616894171286" type="System">
+                            <param id="0" name="Seconds">6</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2733082182932536" type="System">
+                            <param id="0" name="Variable">Lives</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="393803897628577" type="System">
+                            <param id="0" name="Variable">CurrentLevel</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="8554557034568814" type="System">
+                            <param id="0" name="Variable">StartPage</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1232473285967137" type="System">
+                            <param id="0" name="Variable">World</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4920176240249542" type="System">
+                            <param id="0" name="Variable">Level</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="3278601531018708" type="System">
+                            <param id="0" name="Variable">Coins</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1288436362503975" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-26" name="Restart layout" sid="6201520163788883" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

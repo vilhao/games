@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Globals</name>
+    <events>
+        <comment>Global variables, not much going on here.</comment>
+        <variable constant="1" name="ENTRY_NORMAL" sid="7415838491099047" static="0" type="number">0</variable>
+        <variable constant="1" name="ENTRY_FALL" sid="2130463929131129" static="0" type="number">1</variable>
+        <variable constant="1" name="ENTRY_CASTLE" sid="5677050368312984" static="0" type="number">2</variable>
+        <variable constant="1" name="ENTRY_AUTOWALK" sid="5989380233417772" static="0" type="number">3</variable>
+        <variable constant="1" name="MOVEMODE_PLATFORM" sid="3996158188432899" static="0" type="number">0</variable>
+        <variable constant="1" name="MOVEMODE_FROZEN" sid="3746010616144476" static="0" type="number">1</variable>
+        <variable constant="0" name="EntryType" sid="5472097775871787" static="0" type="number">0</variable>
+        <variable constant="0" name="World" sid="3920289396254448" static="0" type="number">1</variable>
+        <variable constant="0" name="Level" sid="2471844142466657" static="0" type="number">1</variable>
+        <variable constant="0" name="CurrentLevel" sid="4437737455969356" static="0" type="number">0</variable>
+        <variable constant="0" name="StartPage" sid="2740488736697931" static="0" type="number">0</variable>
+        <variable constant="0" name="Hardmode" sid="3082278831138935" static="0" type="number">0</variable>
+        <variable constant="0" name="MarioForm" sid="8884499589230023" static="0" type="number">0</variable>
+        <variable constant="0" name="Lives" sid="2325229655057187" static="0" type="number">3</variable>
+        <variable constant="0" name="Score" sid="819641098078541" static="0" type="number">0</variable>
+        <variable constant="0" name="Coins" sid="4005786257457987" static="0" type="number">0</variable>
+        <variable constant="0" name="Timer" sid="6073065386778028" static="0" type="number">-1</variable>
+        <variable constant="0" name="Paused" sid="3640565211082429" static="0" type="number">0</variable>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Sound</name>
+    <events>
+        <comment>Most sound playing is abstracted out here, to make implementing certain features of the Super Mario Bros sound engine easier (like proper sound interruption).</comment>
+        <event-group description="" sid="5997645561565086" title="Sound">
+            <sub-events>
+                <variable constant="0" name="Music" sid="3053114799498398" static="1" type="text"></variable>
+                <variable constant="0" name="OldMusic" sid="3948118333789386" static="1" type="text"></variable>
+                <variable constant="0" name="OldMusicPos" sid="5572187992918756" static="1" type="number">0</variable>
+                <variable constant="0" name="Square1" sid="9291426537374492" static="1" type="text"></variable>
+                <variable constant="0" name="Square2" sid="7590206495173009" static="1" type="text"></variable>
+                <variable constant="0" name="Noise" sid="3079534914529531" static="1" type="text"></variable>
+                <comment>Specify which music tracks need to be looped.</comment>
+                <event-block sid="2654080208477105">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="4292641922666026" type="System" />
+                        <condition id="4" name="Is empty" sid="4056605841795035" type="MusicLoop" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Add key" sid="8011067814872578" type="MusicLoop">
+                            <param id="0" name="Key">&quot;smb_castle&quot;</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Add key" sid="1564470070210249" type="MusicLoop">
+                            <param id="0" name="Key">&quot;smb_overworld_loop&quot;</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Add key" sid="3633498319960851" type="MusicLoop">
+                            <param id="0" name="Key">&quot;smb_starman&quot;</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Add key" sid="9587078771375072" type="MusicLoop">
+                            <param id="0" name="Key">&quot;smb_underworld&quot;</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Specify which sound &quot;channel&quot; each sound is played on. Only one sound can play on a channel at a time.</comment>
+                <event-block sid="7840998033103613">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="3551277517802639" type="System" />
+                        <condition id="4" name="Is empty" sid="585507973582074" type="SoundChannels" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Add key" sid="5973516057563848" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_jump&quot;</param>
+                            <param id="1" name="Value">&quot;Square1&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="6604885291140095" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_bump&quot;</param>
+                            <param id="1" name="Value">&quot;Square1&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="7657494880392737" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_squish&quot;</param>
+                            <param id="1" name="Value">&quot;Square1&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="6767942605753154" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_kick&quot;</param>
+                            <param id="1" name="Value">&quot;Square1&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="6906071946673466" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_takedamage&quot;</param>
+                            <param id="1" name="Value">&quot;Square1&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="6295074167073526" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_fire&quot;</param>
+                            <param id="1" name="Value">&quot;Square1&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="9112226714138324" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_flagpole&quot;</param>
+                            <param id="1" name="Value">&quot;Square1&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="4371776440149527" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_jumpsmall&quot;</param>
+                            <param id="1" name="Value">&quot;Square1&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="5398893778220983" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_coin&quot;</param>
+                            <param id="1" name="Value">&quot;Square2&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="4810943165863216" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_powerup_rise&quot;</param>
+                            <param id="1" name="Value">&quot;Square2&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="8035236986380668" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_bullet&quot;</param>
+                            <param id="1" name="Value">&quot;Square2&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="3993942670188672" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_totals&quot;</param>
+                            <param id="1" name="Value">&quot;Square2&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="2835803527824208" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_powerup&quot;</param>
+                            <param id="1" name="Value">&quot;Square2&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="13819439243478" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_1up&quot;</param>
+                            <param id="1" name="Value">&quot;Square2&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="433635032286559" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_bowserfall&quot;</param>
+                            <param id="1" name="Value">&quot;Square2&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="7795688588238508" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_brickbreak&quot;</param>
+                            <param id="1" name="Value">&quot;Noise&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="3174647881276551" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_bowserflame&quot;</param>
+                            <param id="1" name="Value">&quot;Noise&quot;</param>
+                        </action>
+                        <action id="0" name="Add key" sid="7703029587858656" type="SoundChannels">
+                            <param id="0" name="Key">&quot;smb_pause&quot;</param>
+                            <param id="1" name="Value">&quot;Pause&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2457583380058341">
+                    <conditions>
+                        <condition id="0" name="On function" sid="9786446405997553" type="Function">
+                            <param id="0" name="Name">&quot;PlayMusic&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4145684860356234">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="7015083932052641" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;smb_overworld&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Preload" sid="6464149192239155" type="Audio">
+                                    <param id="0" name="Audio file">smb_overworld_loop</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6729435399888881">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="4147923798796546" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;smb_timer&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="22" name="Set paused" sid="6726072875069971" type="Audio">
+                                    <param id="0" name="Tag">&quot;Music&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="0" name="Play" sid="1226525848550206" type="Audio">
+                                    <param id="0" name="Audio file">smb_timer</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;Timer&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4837467808740257">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="6882668320099335" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="553810617664591" type="System">
+                                    <param id="0" name="Variable">Music</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                                <action id="6" name="Stop" sid="7790118358034152" type="Audio">
+                                    <param id="0" name="Tag">&quot;Music&quot;</param>
+                                </action>
+                                <action id="6" name="Stop" sid="287311074926368" type="Audio">
+                                    <param id="0" name="Tag">&quot;Timer&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="4272931354155691">
+                                    <conditions>
+                                        <condition id="3" name="Has key" sid="6190645326633532" type="MusicLoop">
+                                            <param id="0" name="Key">Music</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="7" name="Play (by name)" sid="286203331432798" type="Audio">
+                                            <param id="0" name="Folder">1</param>
+                                            <param id="1" name="Audio file name">Music</param>
+                                            <param id="3" name="Loop">1</param>
+                                            <param id="4" name="Volume">0</param>
+                                            <param id="2" name="Tag (optional)">&quot;Music&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="4938068364320829">
+                                    <conditions>
+                                        <condition id="3" inverted="1" name="Has key" sid="6503099121335243" type="MusicLoop">
+                                            <param id="0" name="Key">Music</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="7" name="Play (by name)" sid="6755244447053766" type="Audio">
+                                            <param id="0" name="Folder">1</param>
+                                            <param id="1" name="Audio file name">Music</param>
+                                            <param id="3" name="Loop">0</param>
+                                            <param id="4" name="Volume">0</param>
+                                            <param id="2" name="Tag (optional)">&quot;Music&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>If new music starts playing while the speed up effect is active, it should also be sped up.</comment>
+                                <event-block sid="472445698362581">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="3492082992188089" type="System">
+                                            <param id="0" name="Variable">Timer</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">100</param>
+                                        </condition>
+                                        <condition id="-14" name="Compare variable" sid="273000595062755" type="System">
+                                            <param id="0" name="Variable">Timer</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                        <condition id="-15" name="Is group active" sid="1027675170011635" type="System">
+                                            <param id="0" name="Group name">&quot;Timer&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set playback rate" sid="4062541068767175" type="Audio">
+                                            <param id="0" name="Tag">&quot;&quot;</param>
+                                            <param id="1" name="Playback rate">1.4</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Resume normal level music when starman is almost depleted.</comment>
+                <event-block sid="9530637147527029">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="7361168823807103" type="PlayerHitbox">
+                            <param id="0" name="Instance variable">StarmanTimer</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="4286040671300643" type="PlayerHitbox">
+                            <param id="0" name="Instance variable">StarmanTimer</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">3*21/60</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="5427528998139659" type="System">
+                            <param id="0" name="Variable">Music</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;smb_starman&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="1678183566250833" type="Function">
+                            <param id="0" name="Name">&quot;PlayMusic&quot;</param>
+                            <param id="1" name="Parameter {n}">LevelProperties.Music</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Play the looping portion of the overworld music after the intro is done (unless Mario is autowalking into a pipe).</comment>
+                <event-block sid="237697548095985">
+                    <conditions>
+                        <condition id="0" name="On ended" sid="1545813916330014" type="Audio">
+                            <param id="0" name="Tag">&quot;Music&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="9944110270027574" type="System">
+                            <param id="0" name="Variable">Music</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;smb_overworld&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="9417335383773565" type="LevelProperties">
+                            <param id="0" name="Instance variable">EntryType</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">ENTRY_AUTOWALK</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="5720212422160462" type="Function">
+                            <param id="0" name="Name">&quot;PlayMusic&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;smb_overworld_loop&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Do the timer speed up effect after the warning sound is done playing.</comment>
+                <event-block sid="1467642737138078">
+                    <conditions>
+                        <condition id="0" name="On ended" sid="4853005699011311" type="Audio">
+                            <param id="0" name="Tag">&quot;Timer&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="22" name="Set paused" sid="717401084565109" type="Audio">
+                            <param id="0" name="Tag">&quot;Music&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                        <action id="5" name="Set playback rate" sid="1469844655793485" type="Audio">
+                            <param id="0" name="Tag">&quot;Music&quot;</param>
+                            <param id="1" name="Playback rate">1.4</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1161877092490224">
+                    <conditions>
+                        <condition id="0" name="On function" sid="302433573760077" type="Function">
+                            <param id="0" name="Name">&quot;PlaySound&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="Channel" sid="8919734748662761" static="0" type="text"></variable>
+                        <variable constant="0" name="Block" sid="5495399447918463" static="0" type="number">0</variable>
+                        <event-block sid="4804567443917346">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="8493732083944266" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="2457119750437755" type="System">
+                                    <param id="0" name="Variable">Channel</param>
+                                    <param id="1" name="Value">SoundChannels.Get(Function.Param(0))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Keep track of what sound is playing on what channel, so that sound priorities can be handled.</comment>
+                        <event-block sid="9714095090832907">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="9397107427909109" type="System">
+                                    <param id="0" name="Variable">Channel</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Square1&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="3389407254423702" type="System">
+                                    <param id="0" name="Variable">Square1</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2985117264000142">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="895538886056072" type="System">
+                                    <param id="0" name="Variable">Channel</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Square2&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="8568717522106145">
+                                    <conditions>
+                                        <condition id="5" name="Is tag playing" sid="7497617803417675" type="Audio">
+                                            <param id="0" name="Tag">&quot;Square2&quot;</param>
+                                        </condition>
+                                        <condition id="-14" name="Compare variable" sid="3569499317428036" type="System">
+                                            <param id="0" name="Variable">Square2</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;smb_1up&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="3505428505503783" type="System">
+                                            <param id="0" name="Variable">Block</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9902110077875795">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="2761170826352556" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="35135972468799" type="System">
+                                            <param id="0" name="Variable">Square2</param>
+                                            <param id="1" name="Value">Function.Param(0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="390547180105877">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="3164519607608907" type="System">
+                                    <param id="0" name="Variable">Channel</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Noise&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="6461091840736067" type="System">
+                                    <param id="0" name="Variable">Noise</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8662680056084842">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="1785101102593306" type="System">
+                                    <param id="0" name="Variable">Channel</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Pause&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="7790372970834279">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="1884961986547701" type="System">
+                                            <param id="0" name="Variable">Paused</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="6" name="Stop" sid="579959141277493" type="Audio">
+                                            <param id="0" name="Tag">&quot;Square1&quot;</param>
+                                        </action>
+                                        <action id="6" name="Stop" sid="5032863825678949" type="Audio">
+                                            <param id="0" name="Tag">&quot;Square2&quot;</param>
+                                        </action>
+                                        <action id="6" name="Stop" sid="7590041082303037" type="Audio">
+                                            <param id="0" name="Tag">&quot;Noise&quot;</param>
+                                        </action>
+                                        <action id="22" name="Set paused" sid="3224370143212071" type="Audio">
+                                            <param id="0" name="Tag">&quot;Music&quot;</param>
+                                            <param id="1" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="4183624316746169">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="7375798644321338" type="System">
+                                    <param id="0" name="Variable">Block</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Stop" sid="9749875720796426" type="Audio">
+                                    <param id="0" name="Tag">Channel</param>
+                                </action>
+                                <action id="7" name="Play (by name)" sid="4259129940085718" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">Function.Param(0)</param>
+                                    <param id="3" name="Loop">0</param>
+                                    <param id="4" name="Volume">0</param>
+                                    <param id="2" name="Tag (optional)">Channel</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="3329398227895297">
+                    <conditions>
+                        <condition id="0" name="On ended" sid="2947313100815695" type="Audio">
+                            <param id="0" name="Tag">&quot;Pause&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="8680540031259174" type="System">
+                            <param id="0" name="Variable">Paused</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="22" name="Set paused" sid="9739278364981929" type="Audio">
+                            <param id="0" name="Tag">&quot;Music&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

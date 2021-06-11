@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Data</name>
+    <events>
+        <comment>BonusScoreTable translates enemy stomps and shell kills into their point values.</comment>
+        <event-block sid="3065348004369785">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7885824626842803" type="System" />
+                <condition id="7" name="Compare size" sid="2784602221994431" type="BonusScoreTable">
+                    <param id="0" name="Axis">0</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Push" sid="2287795458629376" type="BonusScoreTable">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">100</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="4955050323543438" type="BonusScoreTable">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">200</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="129952796740882" type="BonusScoreTable">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">400</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="2708063379985344" type="BonusScoreTable">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">500</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="4212393089859079" type="BonusScoreTable">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">800</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="8751609635601205" type="BonusScoreTable">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">1000</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="7529819095357164" type="BonusScoreTable">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">2000</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="3403738544597056" type="BonusScoreTable">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">4000</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="5385512853473322" type="BonusScoreTable">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">5000</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="3318513044231387" type="BonusScoreTable">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">8000</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Bowser&apos;s fire breath delays.</comment>
+        <event-block sid="2201765456378252">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="194251670039883" type="System" />
+                <condition id="7" name="Compare size" sid="9910976512636188" type="FireBreathTimes">
+                    <param id="0" name="Axis">0</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Push" sid="3951633676639938" type="FireBreathTimes">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">191/60</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="7650882920077182" type="FireBreathTimes">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">64/60</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="5552812216091272" type="FireBreathTimes">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">191/60</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="8668503136332649" type="FireBreathTimes">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">191/60</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="6865224458962258" type="FireBreathTimes">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">191/60</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="8885763429485485" type="FireBreathTimes">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">64/60</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="6761008002399407" type="FireBreathTimes">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">64/60</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="7914573914975263" type="FireBreathTimes">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">191/60</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8867472615434439">
+            <conditions>
+                <condition id="0" name="On function" sid="6625100301500844" type="Function">
+                    <param id="0" name="Name">&quot;NextFireBreathTime&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Add to" sid="5482496078541005" type="FireBreathTimes">
+                    <param id="0" name="Instance variable">Index</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="1614452728312982">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="3381903371002592" type="FireBreathTimes">
+                            <param id="0" name="Instance variable">Index</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">FireBreathTimes.Width</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="9582885808554695" type="FireBreathTimes">
+                            <param id="0" name="Instance variable">Index</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="381311825960378">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="6284187395568523" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set return value" sid="7613354745507407" type="Function">
+                            <param id="0" name="Value">FireBreathTimes.At(FireBreathTimes.Index)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Load starman and fireflower powerup palette swaps.</comment>
+        <event-block sid="3466081608839288">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="4933838235185143" type="System" />
+                <condition id="7" name="Compare size" sid="7628892458673901" type="FireTransformColors">
+                    <param id="0" name="Axis">0</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Request project file" sid="3497340462720792" type="AJAX">
+                    <param id="0" name="Tag">&quot;firecolors&quot;</param>
+                    <param id="1" name="File">firecolors.json</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="890975829229042">
+            <conditions>
+                <condition id="0" name="On completed" sid="761914012171357" type="AJAX">
+                    <param id="0" name="Tag">&quot;firecolors&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="11" name="Load" sid="70550525430338" type="FireTransformColors">
+                    <param id="0" name="JSON">AJAX.LastData</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Set up Fireworks offsets.</comment>
+        <event-block sid="9392595633542383">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="8696978183030417" type="System" />
+            </conditions>
+            <actions>
+                <action id="3" name="Set at XY" sid="6871110199938583" type="FireworksPos">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">32</param>
+                </action>
+                <action id="3" name="Set at XY" sid="2332055416223756" type="FireworksPos">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">48</param>
+                </action>
+                <action id="3" name="Set at XY" sid="558677585691457" type="FireworksPos">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">0</param>
+                </action>
+                <action id="3" name="Set at XY" sid="3003764841156249" type="FireworksPos">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">96</param>
+                </action>
+                <action id="3" name="Set at XY" sid="4193989164983004" type="FireworksPos">
+                    <param id="0" name="X">2</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">96</param>
+                </action>
+                <action id="3" name="Set at XY" sid="5563365736979735" type="FireworksPos">
+                    <param id="0" name="X">2</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">64</param>
+                </action>
+                <action id="3" name="Set at XY" sid="7819395963499672" type="FireworksPos">
+                    <param id="0" name="X">3</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">96</param>
+                </action>
+                <action id="3" name="Set at XY" sid="6772334738872909" type="FireworksPos">
+                    <param id="0" name="X">3</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">112</param>
+                </action>
+                <action id="3" name="Set at XY" sid="4704863157974127" type="FireworksPos">
+                    <param id="0" name="X">4</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">48</param>
+                </action>
+                <action id="3" name="Set at XY" sid="8820889667545256" type="FireworksPos">
+                    <param id="0" name="X">4</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">64</param>
+                </action>
+                <action id="3" name="Set at XY" sid="9121847905639385" type="FireworksPos">
+                    <param id="0" name="X">5</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">0</param>
+                </action>
+                <action id="3" name="Set at XY" sid="6097835789725971" type="FireworksPos">
+                    <param id="0" name="X">5</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">96</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>LevelMap is a level listing that is very specific to Super Mario Bros.</comment>
+        <event-block sid="6438113249220602">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2240915104189848" type="System" />
+                <condition id="7" name="Compare size" sid="3923794292655501" type="LevelMap">
+                    <param id="0" name="Axis">0</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Push" sid="3885916043927781" type="LevelMap">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;1-1&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="2002432107377805" type="LevelMap">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;PipeWalk&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="4635619195178349" type="LevelMap">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;1-2&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="628242694636193" type="LevelMap">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;1-3&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="4714822734375583" type="LevelMap">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;1-4&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>WorldStarts tells the game which levels in LevelMap are the beginning of each world.</comment>
+        <event-block sid="7794446244361052">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="9823368573243483" type="System" />
+                <condition id="7" name="Compare size" sid="9772665099488726" type="WorldStarts">
+                    <param id="0" name="Axis">0</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Push" sid="7934123859708391" type="WorldStarts">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">0</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="2829381846599319" type="WorldStarts">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">5</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

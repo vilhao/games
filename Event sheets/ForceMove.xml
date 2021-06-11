@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>ForceMove</name>
+    <events>
+        <comment>This sheet is about forcing the player to move right (post-flagpole victory walk).</comment>
+        <event-group description="" sid="3692238758059799" title="ForceMove">
+            <sub-events>
+                <variable constant="0" name="Action" sid="8561358588913358" static="1" type="number">0</variable>
+                <event-block sid="8998520092193074">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="3421857251440978" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="4548310476847555" type="System">
+                            <param id="0" name="Variable">Action</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1766508495781958">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3992855724831273" type="System">
+                            <param id="0" name="Variable">Action</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="7952903667407651" type="VPad">
+                            <param id="0" name="Instance variable">Up</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="5778362075043926" type="VPad">
+                            <param id="0" name="Instance variable">Down</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="1846975325456939" type="VPad">
+                            <param id="0" name="Instance variable">Left</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="6738223590650882" type="VPad">
+                            <param id="0" name="Instance variable">Right</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="6903366937478423" type="VPad">
+                            <param id="0" name="Instance variable">A</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="9193636199129137" type="VPad">
+                            <param id="0" name="Instance variable">B</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8703182743395617">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="9293760131402718" type="System">
+                            <param id="0" name="Variable">Action</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="5163114264003434" type="VPad">
+                            <param id="0" name="Instance variable">Up</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="5227332562477536" type="VPad">
+                            <param id="0" name="Instance variable">Down</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="8868539676299754" type="VPad">
+                            <param id="0" name="Instance variable">Left</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="4863750743626714" type="VPad">
+                            <param id="0" name="Instance variable">Right</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="4330368259918457" type="VPad">
+                            <param id="0" name="Instance variable">A</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="7715254839963042" type="VPad">
+                            <param id="0" name="Instance variable">B</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6888967187046612">
+                    <conditions>
+                        <condition id="0" name="On function" sid="2907242403813874" type="Function">
+                            <param id="0" name="Name">&quot;ForceMoveRight&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="5061358668365072" type="System">
+                            <param id="0" name="Variable">Action</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1085249750810105">
+                    <conditions>
+                        <condition id="0" name="On function" sid="4631615110596624" type="Function">
+                            <param id="0" name="Name">&quot;ForceStop&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="5371392211978184" type="System">
+                            <param id="0" name="Variable">Action</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
